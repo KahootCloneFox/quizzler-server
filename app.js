@@ -27,7 +27,7 @@ gameStart = async roomIndex => {
     io.in(`room${roomId}`).emit('sendQuestion', rooms[roomIndex].questions[i])
     for (let j = 10; j >= 1; j--) {
       io.in(`room${roomId}`).emit('sendTimer', j)
-      await new Promise(resolve => setTimeout(resolve, 50))
+      await new Promise(resolve => setTimeout(resolve, 1000))
     }
     io.in(`room${roomId}`).emit('resetAnswered')
   }
